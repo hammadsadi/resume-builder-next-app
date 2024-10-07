@@ -55,7 +55,7 @@ const StepOne = () => {
           required
         />
         <div className="flex justify-end">
-          <Button>Save</Button>
+          <Button variant="sadiButton">Save</Button>
         </div>
       </form>
     </div>
