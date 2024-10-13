@@ -33,6 +33,8 @@ const resumeSchema = new Schema(
     },
     title: String,
     name: String,
+    phone: String,
+    email: String,
     job: String,
     address: String,
     themeColors: String,
