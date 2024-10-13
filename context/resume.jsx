@@ -1,6 +1,6 @@
 "use client";
 import { createResume } from "@/actions/resume/resume";
-import React from "react";
+import React, { useEffect } from "react";
 const ResumeContext = React.createContext();
 const initialValue = {
   name: "",
@@ -25,6 +25,14 @@ export const ResumeProvider = ({ children }) => {
       alert("Failed to Save Data");
     }
   };
+
+  // Get Resume Info from LS and Save it to State
+  useEffect(() => {
+    const lsResumeInfo = localStorage.getItem("resume");
+    if (lsResumeInfo) {
+      setResume(JSON.parse(lsResumeInfo));
+    }
+  }, []);
   return (
     <ResumeContext.Provider
       value={{ step, setStep, resume, setResume, saveResume }}

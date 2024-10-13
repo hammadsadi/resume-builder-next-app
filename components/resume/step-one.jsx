@@ -12,14 +12,25 @@ const StepOne = () => {
     saveResume();
     console.log(resume);
   };
+  // Handle Change Input
+  const handleChangteInput = (e) => {
+    const { name, value } = e.target;
+    setResume((prevState) => {
+      const updateState = { ...prevState, [name]: value };
+      // Save Resume Info to Local Storage
+      localStorage.setItem("resume", JSON.stringify(updateState));
+      return updateState;
+    });
+  };
   return (
     <div className="w-full lg:w-1/2 p-5 border shadow rounded-lg">
       <h2 className="text-2xl font-bold mb-2">Personal Information</h2>
 
       <Input
         className="mb-3"
-        onChange={(e) => setResume({ ...resume, name: e.target.value })}
+        onChange={handleChangteInput}
         value={resume.name}
+        name="name"
         type="text"
         autoFocus
         placeholder="Full Name"
@@ -27,32 +38,36 @@ const StepOne = () => {
       />
       <Input
         className="mb-3"
-        onChange={(e) => setResume({ ...resume, job: e.target.value })}
+        onChange={handleChangteInput}
         value={resume.job}
+        name="job"
         type="text"
         placeholder="Job Title"
         required
       />
       <Input
         className="mb-3"
-        onChange={(e) => setResume({ ...resume, address: e.target.value })}
+        onChange={handleChangteInput}
         value={resume.address}
+        name="address"
         type="text"
         placeholder="Your Address"
         required
       />
       <Input
         className="mb-3"
-        onChange={(e) => setResume({ ...resume, phone: e.target.value })}
+        onChange={handleChangteInput}
         value={resume.phone}
+        name="phone"
         type="text"
         placeholder="Your Number"
         required
       />
       <Input
         className="mb-3"
-        onChange={(e) => setResume({ ...resume, email: e.target.value })}
+        onChange={handleChangteInput}
         value={resume.email}
+        name="email"
         type="email"
         placeholder="Your Email"
         required
