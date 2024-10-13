@@ -4,13 +4,13 @@ import { Button } from "../ui/button";
 import { useResume } from "@/context/resume";
 import { SignInButton, useUser } from "@clerk/nextjs";
 
-const StepOne = () => {
+const StepOneCreate = () => {
   const { resume, setResume, saveResume } = useResume();
   const { isSignedIn } = useUser();
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveResume();
-    console.log(resume);
+    // saveResume();
+    // Update Resume
   };
   // Handle Change Input
   const handleChangteInput = (e) => {
@@ -87,4 +87,4 @@ const StepOne = () => {
   );
 };
 
-export default StepOne;
+export default StepOneCreate;

@@ -46,5 +46,5 @@ const resumeSchema = new Schema(
   }
 );
 
-const Resume = mongoose.models.Resume || module("Resume", resumeSchema);
+const Resume = mongoose.models.Resume || mongoose.model("Resume", resumeSchema);
 export default Resume;

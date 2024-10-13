@@ -6,6 +6,8 @@ import { currentUser } from "@clerk/nextjs/server"; // Get Loggedin User from cl
 // Create Resume
 export const createResume = async (data) => {
   try {
+    // Connect DB
+    await connectWithDatabase();
     // Get User Info
     const user = await currentUser();
     const userEmail = user?.emailAddresses[0]?.emailAddress;
@@ -16,3 +18,19 @@ export const createResume = async (data) => {
     throw new Error(error);
   }
 };
+
+// Get All Resume
+export const getAllUserResumeFromDB = async () => {
+  try {
+    // Connect DB
+    await connectWithDatabase();
+    // Get User Info
+    const user = await currentUser();
+    const userEmail = user?.emailAddresses[0]?.emailAddress;
+    const resumes = await Resume.find({ userEmail });
+    return JSON.parse(JSON.stringify(resumes));
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+

@@ -9,6 +9,7 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 const TopNav = () => {
   const { isSignedIn, user } = useUser();
   return (
@@ -68,7 +69,7 @@ const TopNav = () => {
                   Dashboard
                 </Link>
               )}
-
+              <Toaster />
               <SignedOut>
                 <SignInButton />
               </SignedOut>
