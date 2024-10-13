@@ -110,3 +110,7 @@
   --accentContrast: white;
   --alpha: hsla(0, 0%, 0%, 0.03);
 }
+
+/* .cl-internal-d50gl1 {
+    display: none !important;
+} */

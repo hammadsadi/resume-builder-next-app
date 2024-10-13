@@ -1,7 +1,7 @@
 "use server";
 import connectWithDatabase from "@/config/db"; // Connect DB
 import Resume from "@/models/resume"; // Import Resume Model
-import { currentUser } from "@clerk/nextjs/dist/types/server"; // Get Loggedin User from clerk
+import { currentUser } from "@clerk/nextjs/server"; // Get Loggedin User from clerk
 
 // Create Resume
 export const createResume = async (data) => {
